@@ -1,0 +1,13 @@
+/tmp/
+/.direnv/
+
+# Logseq data files
+/assets/
+/draws/
+/journals/
+/pages/
+/whiteboards/
+
+# Clojure
+/.clj-kondo/
+/.lsp/
