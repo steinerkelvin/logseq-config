@@ -173,7 +173,15 @@
  ;;  :editor/down            ["ctrl+j" "down"]
  ;;  :editor/left            ["ctrl+h" "left"]
  ;;  :editor/right           ["ctrl+l" "right"]}
- :shortcuts {}
+
+ :shortcuts {;; Define a custom shortcut to set the marker to "CANCELLED"
+             :custom/cancelled {:description "Set marker to CANCELLED"
+                                :binding "ctrl+shift+c"
+                                :handler (fn []
+                                           (let [block (logseq.api/get-current-block)]
+                                             (when block
+                                               (logseq.api/update-block (:uuid block) {:marker "CANCELLED"}))))}}
+
 
  ;; Configure the behavior of pressing Enter in document mode.
  ;; if set to true, pressing Enter will create a new block.
